@@ -15,5 +15,8 @@ You will see a menu popping up and you can make choices by entering the numbers 
 Do not forget to include the libaries, if needed you can download them from Maven.
 
 ## Test
-To test the app, go to package "test" and you can choose to run the tests by yourself.
+To test the app, go to package "test" and you can choose to run the tests by yourself. 
+
+Tested by Hanadi. Feedback -> It would be nice to see that the todo was updated to done in the console for clarity.
+
 
