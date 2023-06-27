@@ -14,4 +14,6 @@ Clone the project to github desktop and then open and run the main file on your 
 You will see a menu popping up and you can make choices by entering the numbers matching the diffrent choices. 
 Do not forget to include the libaries, if needed you can download them from Maven.
 
+## Test
+To test the app, go to package "test" and you can choose to run the tests by yourself.
 
