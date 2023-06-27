@@ -41,6 +41,9 @@ public class Mongo {
             throw new RuntimeException(); // Vid eventuellt fel, kasta fel.
         }
     }
+    public MongoCollection<Document> getMongoCollection(String collectionName) {
+        return mongoCollection;
+    }
     public void create(Todo todo) {
         Document document = todo.toDoc();
         var find = mongoCollection.find(document);
