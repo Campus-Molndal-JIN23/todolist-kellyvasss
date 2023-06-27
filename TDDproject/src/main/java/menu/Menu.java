@@ -2,7 +2,6 @@ package menu;
 
 import database.Mongo;
 import todo.Todo;
-import utils.Builder;
 import utils.Prints;
 import utils.Scan;
 
@@ -26,10 +25,11 @@ public class Menu {
         switch (input) {
             case "1" -> create();
             case "2" -> read();
-            case "3" -> update();
-            case "4" -> listAll();
-            case "5" -> delete();
-            case "6" -> System.exit(0);
+            case "3" -> updateDone();
+            case "4" -> updateText();
+            case "5" -> listAll();
+            case "6" -> delete();
+            case "7" -> System.exit(0);
             default -> {
                 System.out.println(Prints.unvalid);
                 input = Scan.getString(Prints.input);
@@ -37,6 +37,8 @@ public class Menu {
             }
         }
     }
+
+
     private void create() {
         System.out.println(Prints.create);
         String text = Scan.getString(Prints.input);
@@ -53,21 +55,31 @@ public class Menu {
     private void read() {
         String objectID = Scan.getString(Prints.getID);
 
-        Todo todo = mongo.read(objectID);
-
-        if (todo != null) {
-            System.out.println("Todo:\n" + todo.getText());
-        } else {
+        try {
+            Todo todo = mongo.read(objectID);
+            if (todo != null) {
+                System.out.println("Todo:\n" + todo.getText());
+            }
+        } catch (IllegalArgumentException e) {
             System.out.println("Todo hittades inte.");
         }
 
+
         start();
     }
-    private void update() {
+    private void updateDone() {
         String objectID = Scan.getString(Prints.getID);
 
         mongo.update(objectID);
 
+        System.out.println("Todo har uppdaterats.");
+        start();
+    }
+
+    private void updateText() {
+        String objectID = Scan.getString(Prints.getID);
+        String updateText = Scan.getString(Prints.input);
+        mongo.updateText(objectID, updateText);
         System.out.println("Todo har uppdaterats.");
         start();
     }

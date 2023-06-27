@@ -1,7 +1,7 @@
 package utils;
 import java.util.function.Consumer;
 
-public class Builder<T> {
+public class Builder<T> { // används ej, hade blivit användbar vid implementering av user i programmet
     private final T object;
     public Builder(T object) {
         this.object = object;

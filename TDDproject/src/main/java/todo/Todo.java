@@ -2,7 +2,6 @@ package todo;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import utils.Builder;
 
 public class Todo implements Necessarys {
 

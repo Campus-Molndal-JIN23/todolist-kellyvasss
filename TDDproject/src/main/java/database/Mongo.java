@@ -66,6 +66,14 @@ public class Mongo {
             mongoCollection.updateOne(document, update);
         }
     }
+    public void updateText(String objectID, String updateText) {
+        ObjectId id = new ObjectId(objectID);
+        Document document = new Document("_id", id);
+        if(mongoCollection.find(document) != null) {
+            Document update = new Document("$set", new Document("text", updateText));
+            mongoCollection.updateOne(document, update);
+        }
+    }
     public void delete(String objectID) {
         ObjectId id = new ObjectId(objectID);
         Document document = new Document("_id", id);
