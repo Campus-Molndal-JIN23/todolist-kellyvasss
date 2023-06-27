@@ -24,7 +24,7 @@ class MongoTest {
     private Todo todo;
     @BeforeEach
     void setUp() {
-        mongo = Mockito.mock(Mongo.class);
+        mongo = mock(Mongo.class);
         mongoCollection = mock(MongoCollection.class);
         todo = new Todo();
     }
